@@ -8,8 +8,8 @@ spec:
     namespace: default
     server: 'https://kubernetes.default.svc'
   source:
-    path: app
-    repoURL: 'https://github.com/linitsh/argo-tests/simple'
+    path: 'simple/app'
+    repoURL: 'https://github.com/linitsh/argo-tests'
     targetRevision: ''
   project: default
   syncPolicy:
