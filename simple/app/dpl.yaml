@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpl-testy
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      pod: &pod pod-testy
+  template:
+    metadata:
+      labels:
+        pod: *pod
+
+    spec:
+      containers:
+      - name : ctr-testy
+        resources:
+        image: docker.io/linitsh/testy:0.0.6
+        args: [] # "--error=50" # Dockerfile CMD override
+        imagePullPolicy: Always # actually always
+        ports:
+        - name: ctr-port
+          containerPort: 3000   # app port
